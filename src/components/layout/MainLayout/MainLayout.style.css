@@ -1,0 +1,8 @@
+.ant-layout {
+    background: none;
+}
+
+.ant-btn-variant-text:not(:disabled):not(.ant-btn-disabled):hover {
+    color: none;
+    background: none;
+}

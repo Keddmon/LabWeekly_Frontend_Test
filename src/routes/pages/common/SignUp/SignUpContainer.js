@@ -1,64 +1,63 @@
-import { useState } from "react";
-import SignUpPresenter from "./SignUpPresenter"
+import { useState } from 'react';
+import SignupPresenter from './SignupPresenter';
+import { useNavigate } from 'react-router-dom';
 
-const SignUpContainer = () => {
-    const [userId, setUserId] = useState('');
-    const [userPassword, setUserPassword] = useState('');
-    const [userName, setUserName] = useState('');
-    const [error, setError] = useState(null);
+const SignupContainer = () => {
 
-    const handleSignUp = async (e) => {
-        e.preventDefault();
-        setError(null);
+    /* ===== ROUTE ===== */
+    const navigate = useNavigate();
 
-        try {
-            const userInfo = {
-                id: userId,
-                password: userPassword,
-                name: userName
-            };
+    /* ===== STATE ===== */
+    const [userInfo, setUserInfo] = useState({
+        id: '',
+        password: '',
+        name: '',
+    });
 
-            const response = await fetch('http://localhost:8080/user/signup', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(userInfo),
-            });
+    /* ===== FUNCTION ===== */
+    const handleSignup = async () => {
+        if (!userInfo.name.length) {
+            return alert('이름을 입력해주세요.');
+        }
 
-            if (response.ok) {
-                const result = await response.json();
-                console.log('회원가입 성공', result);
-                alert('회원가입 성공');
-            } else {
-                const error = await response.json();
-                console.log('회원가입 실패', error.message);
-                alert(`회원가입 실패: ${error.message}`);
-            }
+        if (!userInfo.id.length) {
+            return alert('아이디를 입력해주세요.');
+        }
 
-            setUserId('');
-            setUserPassword('');
-            setUserName('');
+        if (!userInfo.password.length) {
+            return alert('비밀번호를 입력해주세요');
+        }
 
-        } catch (err) {
-            setError('중복 가입');
-            console.error('회원가입 요청 에러:', err);
+        const response = await fetch('http://localhost:8080/user/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userInfo),
+        });
+
+        const result = await response.json();
+
+        if (result.status === 400) {
+            alert('회원가입 중 오류가 발생했습니다.');
+            return;
+        }
+
+        if (result.status === 200) {
+            alert('회원가입을 축하드립니다. 로그인 후 진행해주세요.');
+            navigate('/');
         }
     };
 
+    /* ===== RENDER ===== */
     return (
-        <SignUpPresenter
-            userId={userId}
-            userPassword={userPassword}
-            userName={userName}
+        <SignupPresenter
+            userInfo={userInfo}
+            setUserInfo={setUserInfo}
 
-            setUserId={setUserId}
-            setUserPassword={setUserPassword}
-            setUserName={setUserName}
-
-            handleSignUp={handleSignUp}
+            onSignupClick={handleSignup}
         />
     );
 };
 
-export default SignUpContainer;
+export default SignupContainer;

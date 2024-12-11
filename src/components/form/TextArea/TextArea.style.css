@@ -1,0 +1,21 @@
+.textarea-container {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.textarea-container textarea {
+    border: 1px solid var(--border-color);
+
+    outline: none;
+
+    padding: 12px;
+
+    resize: none;
+}
+
+.textarea-container textarea:focus {
+    border: 1px solid #000000;
+}

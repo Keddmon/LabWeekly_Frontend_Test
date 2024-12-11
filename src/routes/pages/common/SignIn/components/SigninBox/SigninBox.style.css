@@ -1,0 +1,23 @@
+.signin-box-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    padding: 30px;
+    
+    background-color: #FFFFFF;
+
+    border-top: 5px solid var(--primary-color);
+}
+
+.signin-box-container .title-container {
+    width: 100%;
+    height: 25%;
+
+    text-align: center;
+}
+
+.signin-box-container .title-container span {
+    font-size: 2rem;
+    color: var(--primary-color);
+}

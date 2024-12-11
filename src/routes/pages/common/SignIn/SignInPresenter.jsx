@@ -1,34 +1,24 @@
-import { MainLayout } from '../../../../layouts';
-import './SignIn.css';
+import SigninBox from './components/SigninBox/SigninBox';
+import './Signin.style.css';
 
-const SignInPresenter = ({
-    id,
-    password,
-    setId,
-    setPassword,
-    handleSignIn,
+const SigninPresenter = ({
+    userInfo,
+    setUserInfo,
+
+    onSigninClick,
 }) => {
+
+    /* ===== RENDER ===== */
     return (
-        <MainLayout>
-            <form onSubmit={handleSignIn}>
-                <input
-                    type='text'
-                    placeholder='id'
-                    value={id}
-                    onChange={(e) => setId(e.target.value)}
-                />
-                <input
-                    type='text'
-                    placeholder='text'
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button type='submit'>
-                    로그인
-                </button>
-            </form>
-        </MainLayout>
+        <div className='signin-container'>
+            <SigninBox
+                userInfo={userInfo}
+                setUserInfo={setUserInfo}
+
+                onSigninClick={onSigninClick}
+            />
+        </div>
     );
 };
 
-export default SignInPresenter;
+export default SigninPresenter;

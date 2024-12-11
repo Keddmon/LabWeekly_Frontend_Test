@@ -1,49 +1,24 @@
-import { MainLayout } from "../../../../layouts";
+import SignupBox from './components/SignupBox/SignupBox';
+import './Signup.style.css';
 
-const SignUpPresenter = ({
-    userId,
-    userPassword,
-    userName,
+const SignupPresenter = ({
+    userInfo,
+    setUserInfo,
 
-    setUserId,
-    setUserPassword,
-    setUserName,
-
-    handleSignUp,
+    onSignupClick
 }) => {
 
+    /* ===== RENDER ===== */
     return (
-        <MainLayout>
-            <form
-                onSubmit={handleSignUp}
-            >
-                <input
-                    type="text"
-                    placeholder="id"
-                    value={userId}
-                    onChange={(e) => setUserId(e.target.value)}
-                    required
-                />
-                <input
-                    type="text"
-                    placeholder="password"
-                    value={userPassword}
-                    onChange={(e) => setUserPassword(e.target.value)}
-                    required
-                />
-                <input
-                    type="text"
-                    placeholder="name"
-                    value={userName}
-                    onChange={(e) => setUserName(e.target.value)}
-                    required
-                />
-                <div>
-                    <button type="submit">가입하기</button>
-                </div>
-            </form>
-        </MainLayout>
+        <div className='signup-container'>
+            <SignupBox
+                userInfo={userInfo}
+                setUserInfo={setUserInfo}
+
+                onSignupClick={onSignupClick}
+            />
+        </div>
     );
 };
 
-export default SignUpPresenter;
+export default SignupPresenter;
