@@ -33,7 +33,7 @@ const ReportContainer = () => {
             alert('보고서 작성이 완료되었습니다.');
             navigate('/main');
         }
-    };
+    };    
 
     /* ===== RENDER ===== */
     return (

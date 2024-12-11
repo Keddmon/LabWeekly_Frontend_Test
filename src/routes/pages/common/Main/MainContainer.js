@@ -7,6 +7,12 @@ const MainContainer = () => {
     /* ===== STATE ===== */
     const [reports, setReports] = useState([]);
     const [myReports, setMyReports] = useState([]);
+    const [selectedReport, setSelectedReport] = useState(null);
+
+    /* ===== FUNCTION ===== */
+    const handleReportClick = (report) => {
+        setSelectedReport(report);
+    };
 
     /* ===== EFFECT ===== */
     useEffect(() => {
@@ -52,6 +58,10 @@ const MainContainer = () => {
             reports={reports}
 
             myReports={myReports}
+
+            selectedReport={selectedReport}
+
+            onReportClick={handleReportClick}
         />
     );
 };

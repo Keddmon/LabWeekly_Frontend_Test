@@ -6,6 +6,7 @@ const ReportList = ({
     label,
     className,
     reports,
+    onReportClick,
 }) => {
 
     /* ===== STYLE ===== */
@@ -27,6 +28,7 @@ const ReportList = ({
                         <ReportCard
                             key={index}
                             report={report}
+                            onReportClick={onReportClick}
                         />
                     ))
                 }

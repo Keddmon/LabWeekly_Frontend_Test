@@ -7,7 +7,7 @@
         "all mine"
         "dashboard dashboard";
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: 1fr 1.5fr;
     gap: 12px;
 }
 
