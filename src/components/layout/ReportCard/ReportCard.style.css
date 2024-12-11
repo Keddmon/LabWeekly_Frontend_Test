@@ -1,0 +1,11 @@
+.report-card-container {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.report-card-container .report-card-title {
+    flex: 1;
+}

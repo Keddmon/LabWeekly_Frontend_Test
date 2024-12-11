@@ -4,6 +4,8 @@
  */
 export {
     MainLayout,
+    ReportList,
+    Dashboard,
 } from './layout';
 
 /**

@@ -10,6 +10,7 @@ const Input = ({
 
     label,
     placeholder,
+    type,
 
     value,
 
@@ -23,6 +24,7 @@ const Input = ({
         <div className='input-container'>
             <span className={`bold large ${required ? 'required' : ''}`}>{label}</span>
             <input
+                type={type}
                 placeholder={placeholder}
                 value={value}
                 onChange={onChange}
@@ -32,7 +34,7 @@ const Input = ({
                     borderRadius: borderRadius,
                     padding: padding,
                     fontSize: fontSize,
-                    ...style
+                    ...style,
                 }}
             />
         </div>

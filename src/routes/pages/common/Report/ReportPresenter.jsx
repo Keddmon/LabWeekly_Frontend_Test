@@ -2,11 +2,10 @@ import { Button, Input, MainLayout, TextArea } from '../../../../components';
 import './Report.style.css';
 
 const ReportPresenter = ({
-    title,
-    setTitle,
-
     reportContent,
     setReportContent,
+
+    onCreateReportClick,
 }) => {
 
     /* ===== RENDER ===== */
@@ -20,8 +19,13 @@ const ReportPresenter = ({
                     placeholder={'제목을 입력해주세요.'}
                     required
                     borderRadius={'10px'}
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
+                    value={reportContent.title}
+                    onChange={(e) => {
+                        const title = e.target.value;
+                        setReportContent(prev => {
+                            return { ...prev, title };
+                        });
+                    }}
                 />
                 <TextArea
                     label={'진행사항'}
@@ -77,11 +81,11 @@ const ReportPresenter = ({
                 <div className='button-wrap'>
                     <Button
                         label={'작성하기'}
-                        disabled={!(title && reportContent.progress && reportContent.issues && reportContent.planned)}
+                        onClick={onCreateReportClick}
+                        disabled={!(reportContent.title && reportContent.progress && reportContent.issues && reportContent.planned)}
                     />
                 </div>
             </div>
-
         </MainLayout>
     );
 };

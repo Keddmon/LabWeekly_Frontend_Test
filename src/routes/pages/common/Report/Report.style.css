@@ -6,6 +6,8 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
+
+    overflow-y: auto;
 }
 
 .report-container .button-wrap {

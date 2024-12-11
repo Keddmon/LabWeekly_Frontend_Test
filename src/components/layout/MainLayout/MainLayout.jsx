@@ -154,19 +154,13 @@ const MainLayout = ({
                             {
                                 key: '1',
                                 icon: <UserOutlined />,
-                                label: '대시보드',
+                                label: '메인',
                                 onClick: () => navigate('/main'),
                             },
-                            // {
-                            //     key: '2',
-                            //     icon: <VideoCameraOutlined />,
-                            //     label: '프로젝트',
-                            //     onClick: () => navigate('/project')
-                            // },
                             {
-                                key: '3',
+                                key: '2',
                                 icon: <UploadOutlined />,
-                                label: '보고서',
+                                label: '보고서 작성',
                                 onClick: () => navigate('/report')
                             },
                         ]}
@@ -195,6 +189,7 @@ const MainLayout = ({
                         minHeight: 280,
                         background: colorBgContainer,
                         borderRadius: borderRadiusLG,
+                        overflowY: 'scroll',
                     }}
                 >
                     {children}

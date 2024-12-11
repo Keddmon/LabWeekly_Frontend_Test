@@ -1,0 +1,33 @@
+.main-container {
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-template-areas:
+        "all mine"
+        "dashboard dashboard";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.main-container .all {
+    grid-area: all;
+}
+
+.main-container .mine {
+    grid-area: mine;
+}
+
+.main-container .dashboard {
+    grid-area: dashboard;
+}
+
+.main-container .all,
+.main-container .mine,
+.main-container .dashboard {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+
+    padding: 20px;
+}
