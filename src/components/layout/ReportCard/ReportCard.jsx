@@ -10,6 +10,7 @@ const ReportCard = ({
         <div
             className='report-card-container'
             onClick={() => onReportClick(report)}
+            style={{ cursor: 'pointer' }}
         >
             <span className='report-card-title'>{report?.title}</span>
             <div className='report-card-info'>
